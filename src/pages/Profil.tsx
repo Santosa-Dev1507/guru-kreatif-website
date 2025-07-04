@@ -35,7 +35,7 @@ const Profil = () => {
                   <div className="mb-6">
                     <p className="text-lg leading-relaxed text-slate-700">
                       <span className="font-semibold text-blue-600">Assalamu'alaikum warahmatullahi wabarakatuh.</span> 
-                      {" "}Perkenalkan, saya <span className="font-semibold">[Nama Anda]</span>, seorang guru Pendidikan Agama Islam di <span className="font-semibold">[Nama Sekolah Anda]</span>. Sejak awal mengajar, saya selalu percaya bahwa tugas seorang pendidik bukan hanya mentransfer ilmu, tetapi juga menyalakan api semangat belajar di hati setiap siswa.
+                      {" "}Perkenalkan, saya <span className="font-semibold">Budi Santosa</span>, seorang guru Pendidikan Agama Islam di <span className="font-semibold">SMP Negeri 5 Klaten</span>. Sejak awal mengajar, saya selalu percaya bahwa tugas seorang pendidik bukan hanya mentransfer ilmu, tetapi juga menyalakan api semangat belajar di hati setiap siswa.
                     </p>
                   </div>
                   
