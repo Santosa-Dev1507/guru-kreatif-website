@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Eye, ExternalLink, Filter, Image, FileText, Users, Megaphone } from 'lucide-react';
+import { Eye, ExternalLink, Filter, Image, FileText, Users, Megaphone, Book } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
