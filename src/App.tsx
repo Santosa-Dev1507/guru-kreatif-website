@@ -9,6 +9,7 @@ import Profil from "./pages/Profil";
 import Portofolio from "./pages/Portofolio";
 import MateriKelas from "./pages/MateriKelas";
 import KelasDetail from "./pages/KelasDetail";
+import Kontak from "./pages/Kontak";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -25,6 +26,7 @@ const App = () => (
           <Route path="/portofolio" element={<Portofolio />} />
           <Route path="/materi-kelas" element={<MateriKelas />} />
           <Route path="/kelas/:grade" element={<KelasDetail />} />
+          <Route path="/kontak" element={<Kontak />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

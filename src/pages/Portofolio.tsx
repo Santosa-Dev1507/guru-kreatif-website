@@ -11,59 +11,60 @@ const Portofolio = () => {
 
   const filters = [
     { name: 'Semua', icon: Filter },
-    { name: 'Infografis PAI', icon: Image },
-    { name: 'Desain Presentasi', icon: FileText },
-    { name: 'Poster Dakwah', icon: Megaphone },
+    { name: 'Infografis Materi', icon: Image },
+    { name: 'Desain Modul Ajar', icon: Book },
+    { name: 'Slide Presentasi', icon: FileText },
+    { name: 'Poster Edukasi', icon: Megaphone },
   ];
 
   const portfolioItems = [
     {
       id: 1,
-      title: 'Infografis Proses Turunnya Al-Qur\'an',
-      category: 'Infografis PAI',
-      description: 'Dibuat untuk siswa kelas X guna memvisualisasikan kronologi Nuzulul Qur\'an. Proyek ini menggunakan ikonografi sederhana dan alur yang jelas untuk meningkatkan daya ingat siswa.',
+      title: 'Infografis Asmaul Husna',
+      category: 'Infografis Materi',
+      description: 'Media pembelajaran visual yang menjelaskan 99 nama Allah dengan desain modern dan mudah dipahami siswa SMP.',
       gradient: 'from-blue-400 to-blue-600',
-      icon: Book
+      icon: Image
     },
     {
       id: 2,
-      title: 'Template Presentasi Materi Fikih',
-      category: 'Desain Presentasi',
-      description: 'Sebuah set template slide modern dan bersih yang saya gunakan untuk mengajar bab Fikih. Desain ini mengutamakan keterbacaan dan hierarki informasi.',
+      title: 'Modul Ajar Akhlak Digital',
+      category: 'Desain Modul Ajar',
+      description: 'Modul pembelajaran tentang etika dan akhlak dalam penggunaan teknologi digital untuk generasi Z.',
       gradient: 'from-green-400 to-green-600',
-      icon: FileText
-    },
-    {
-      id: 3,
-      title: 'Poster Kegiatan Maulid Nabi',
-      category: 'Poster Dakwah',
-      description: 'Poster digital yang didesain untuk pengumuman acara Maulid Nabi di media sosial sekolah. Tujuannya adalah menarik partisipasi siswa dengan visual yang segar dan modern.',
-      gradient: 'from-purple-400 to-purple-600',
-      icon: Megaphone
-    },
-    {
-      id: 4,
-      title: 'Infografis Rukun Islam',
-      category: 'Infografis PAI',
-      description: 'Media pembelajaran visual yang menjelaskan kelima rukun Islam dengan pendekatan modern dan mudah dipahami siswa generasi Z.',
-      gradient: 'from-orange-400 to-orange-600',
       icon: Book
     },
     {
-      id: 5,
-      title: 'Template Kuis Interaktif',
-      category: 'Desain Presentasi',
-      description: 'Template presentasi untuk kuis PAI yang interaktif dengan animasi dan desain yang menarik untuk meningkatkan engagement siswa.',
-      gradient: 'from-teal-400 to-teal-600',
+      id: 3,
+      title: 'Slide Presentasi Sejarah Islam',
+      category: 'Slide Presentasi',
+      description: 'Template presentasi yang menarik untuk materi sejarah perjuangan Nabi Muhammad SAW.',
+      gradient: 'from-purple-400 to-purple-600',
       icon: FileText
     },
     {
-      id: 6,
-      title: 'Poster Nilai-nilai Islami',
-      category: 'Poster Dakwah',
-      description: 'Serie poster yang menampilkan nilai-nilai luhur Islam dengan desain kontemporer untuk dipasang di area sekolah.',
-      gradient: 'from-rose-400 to-rose-600',
+      id: 4,
+      title: 'Poster Pekan Ramadhan',
+      category: 'Poster Edukasi',
+      description: 'Poster digital untuk kegiatan sekolah dalam menyambut bulan suci Ramadhan.',
+      gradient: 'from-orange-400 to-orange-600',
       icon: Megaphone
+    },
+    {
+      id: 5,
+      title: 'Infografis Rukun Islam',
+      category: 'Infografis Materi',
+      description: 'Visualisasi lima rukun Islam dengan pendekatan desain yang fresh dan mudah diingat.',
+      gradient: 'from-teal-400 to-teal-600',
+      icon: Image
+    },
+    {
+      id: 6,
+      title: 'Modul Fikih Ibadah',
+      category: 'Desain Modul Ajar',
+      description: 'Panduan lengkap tata cara ibadah dengan ilustrasi dan penjelasan yang komprehensif.',
+      gradient: 'from-rose-400 to-rose-600',
+      icon: Book
     }
   ];
 
@@ -80,11 +81,11 @@ const Portofolio = () => {
           {/* Header */}
           <div className="text-center mb-12">
             <h1 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4">
-              Galeri Karya Desain
+              Portofolio Desain Pembelajaran
             </h1>
             <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-green-600 mx-auto rounded-full mb-6"></div>
             <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-              Kumpulan karya desain yang telah saya buat untuk mendukung pembelajaran PAI yang lebih menarik dan efektif.
+              Berikut adalah beberapa contoh media pembelajaran visual yang saya rancang untuk mendukung proses belajar mengajar di kelas.
             </p>
           </div>
 

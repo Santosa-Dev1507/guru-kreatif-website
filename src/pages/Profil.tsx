@@ -14,7 +14,7 @@ const Profil = () => {
           {/* Header */}
           <div className="text-center mb-16">
             <h1 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4">
-              Lebih Dekat dengan Saya
+              Profil Budi Santosa
             </h1>
             <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-green-600 mx-auto rounded-full"></div>
           </div>
@@ -33,9 +33,9 @@ const Profil = () => {
               <Card className="h-full shadow-xl border-0">
                 <CardContent className="p-8">
                   <div className="mb-6">
+                    <h2 className="text-2xl font-bold text-slate-800 mb-4">Guru PAI di Era Digital</h2>
                     <p className="text-lg leading-relaxed text-slate-700">
-                      <span className="font-semibold text-blue-600">Assalamu'alaikum warahmatullahi wabarakatuh.</span> 
-                      {" "}Perkenalkan, saya <span className="font-semibold">Budi Santosa</span>, seorang guru Pendidikan Agama Islam di <span className="font-semibold">SMP Negeri 5 Klaten</span>. Sejak awal mengajar, saya selalu percaya bahwa tugas seorang pendidik bukan hanya mentransfer ilmu, tetapi juga menyalakan api semangat belajar di hati setiap siswa.
+                      Saya mengabdi sebagai guru Pendidikan Agama Islam di <span className="font-semibold">SMPN 5 Klaten</span>, dengan amanah mengajar siswa Kelas VIII dan IX. Bekerja dengan remaja di usia pencarian jati diri ini merupakan tantangan sekaligus anugerah. Saya memegang teguh prinsip dari Sayyidina Ali bin Abi Thalib bahwa setiap generasi harus dididik sesuai zamannya. Prinsip inilah yang menjadi kompas saya untuk tidak hanya mengajar, tetapi juga 'terhubung' dengan dunia mereka.
                     </p>
                   </div>
                   
@@ -44,14 +44,14 @@ const Profil = () => {
                       <BookOpen className="w-6 h-6 text-blue-600" />
                       <div>
                         <p className="font-semibold text-slate-800">Pendidik PAI</p>
-                        <p className="text-sm text-slate-600">Profesional & Berdedikasi</p>
+                        <p className="text-sm text-slate-600">SMPN 5 Klaten</p>
                       </div>
                     </div>
                     <div className="flex items-center gap-3 p-3 bg-green-50 rounded-lg">
                       <Lightbulb className="w-6 h-6 text-green-600" />
                       <div>
                         <p className="font-semibold text-slate-800">Desainer Grafis</p>
-                        <p className="text-sm text-slate-600">Kreatif & Inovatif</p>
+                        <p className="text-sm text-slate-600">Media Pembelajaran</p>
                       </div>
                     </div>
                   </div>
@@ -60,35 +60,17 @@ const Profil = () => {
             </div>
           </div>
 
-          {/* Philosophy Section */}
+          {/* Visi Misi Section */}
           <Card className="mb-16 shadow-xl border-0">
             <CardContent className="p-8">
               <h2 className="text-2xl font-bold text-slate-800 mb-6 flex items-center gap-3">
                 <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-green-600 rounded-full flex items-center justify-center">
                   <BookOpen className="w-4 h-4 text-white" />
                 </div>
-                Filosofi Mengajar Saya
-              </h2>
-              <p className="text-lg leading-relaxed text-slate-700 mb-6">
-                Bagi saya, PAI bukan sekadar mata pelajaran, melainkan fondasi karakter. Di era digital ini, tantangannya adalah bagaimana membuat nilai-nilai Islam yang agung tetap relevan dan menarik bagi generasi Z. Inilah yang mendorong saya untuk keluar dari metode konvensional dan merangkul dunia teknologi serta desain.
-              </p>
-              <p className="text-lg leading-relaxed text-slate-700">
-                Saya percaya, sebuah infografis yang baik bisa menjelaskan Rukun Iman lebih efektif daripada ribuan kata, dan sebuah video animasi singkat bisa membuat kisah para nabi lebih hidup.
-              </p>
-            </CardContent>
-          </Card>
-
-          {/* Creative Journey */}
-          <Card className="mb-16 shadow-xl border-0">
-            <CardContent className="p-8">
-              <h2 className="text-2xl font-bold text-slate-800 mb-6 flex items-center gap-3">
-                <div className="w-8 h-8 bg-gradient-to-r from-green-600 to-blue-600 rounded-full flex items-center justify-center">
-                  <Lightbulb className="w-4 h-4 text-white" />
-                </div>
-                Perjalanan Kreatif
+                Menjemput Masa Depan dengan Iman yang Kuat dan Kreativitas
               </h2>
               <p className="text-lg leading-relaxed text-slate-700">
-                Kecintaan saya pada desain grafis berawal dari hobi sederhana, namun kini menjadi alat bantu utama dalam mengajar. Melalui desain, saya berusaha menerjemahkan materi yang kompleks menjadi visual yang indah dan mudah dicerna. Website ini adalah wujud dari semangat tersebut, sebuah rumah digital tempat saya berbagi, berkarya, dan berinteraksi.
+                Melihat siswa yang begitu akrab dengan gawai dan informasi visual, saya terpanggil untuk membawa pembelajaran PAI ke level berikutnya. Saya percaya, nilai-nilai keimanan dan akhlak mulia bisa bersemi lebih subur jika disajikan melalui media yang mereka kenal dan sukai. Oleh karena itu, saya mendalami desain grafis dan teknologi pembelajaran sebagai jembatan untuk menyampaikan pesan-pesan kebaikan dengan cara yang relevan. Website ini adalah salah satu ikhtiar saya dalam mewujudkan visi tersebut.
               </p>
             </CardContent>
           </Card>
@@ -100,39 +82,47 @@ const Profil = () => {
                 <div className="w-8 h-8 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full flex items-center justify-center">
                   <Award className="w-4 h-4 text-white" />
                 </div>
-                Kualifikasi & Pengalaman
+                Kualifikasi
               </h2>
               
               <div className="space-y-6">
                 <div className="flex items-start gap-4 p-4 bg-slate-50 rounded-lg">
                   <div className="w-3 h-3 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
                   <div>
-                    <h3 className="font-semibold text-slate-800">S.Pd. Pendidikan Agama Islam</h3>
-                    <p className="text-slate-600">[Nama Universitas Anda] (Tahun Lulus)</p>
+                    <h3 className="font-semibold text-slate-800">Guru Pendidikan Agama Islam</h3>
+                    <p className="text-slate-600">SMPN 5 Klaten (2022 - Sekarang)</p>
                   </div>
                 </div>
                 
                 <div className="flex items-start gap-4 p-4 bg-slate-50 rounded-lg">
                   <div className="w-3 h-3 bg-green-600 rounded-full mt-2 flex-shrink-0"></div>
                   <div>
-                    <h3 className="font-semibold text-slate-800">Guru PAI</h3>
-                    <p className="text-slate-600">[Nama Sekolah Saat Ini] (Tahun Mulai - Sekarang)</p>
+                    <h3 className="font-semibold text-slate-800">Sarjana Pendidikan Islam</h3>
+                    <p className="text-slate-600">UIN RADEN MAS SAID SURAKARTA</p>
                   </div>
                 </div>
                 
                 <div className="flex items-start gap-4 p-4 bg-slate-50 rounded-lg">
                   <div className="w-3 h-3 bg-purple-600 rounded-full mt-2 flex-shrink-0"></div>
                   <div>
-                    <h3 className="font-semibold text-slate-800">Sertifikasi Google Certified Educator</h3>
-                    <p className="text-slate-600">(Tahun)</p>
+                    <h3 className="font-semibold text-slate-800">Program Non Gelar Peningkatan Kompetensi Digital</h3>
+                    <p className="text-slate-600">Kemenag RI (2022)</p>
                   </div>
                 </div>
                 
                 <div className="flex items-start gap-4 p-4 bg-slate-50 rounded-lg">
                   <div className="w-3 h-3 bg-pink-600 rounded-full mt-2 flex-shrink-0"></div>
                   <div>
-                    <h3 className="font-semibold text-slate-800">Pemenang Lomba Inovasi Mengajar</h3>
-                    <p className="text-slate-600">[Nama Lomba] (Tahun)</p>
+                    <h3 className="font-semibold text-slate-800">Google Certified Educator Level 2</h3>
+                    <p className="text-slate-600">(2023)</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4 p-4 bg-slate-50 rounded-lg">
+                  <div className="w-3 h-3 bg-orange-600 rounded-full mt-2 flex-shrink-0"></div>
+                  <div>
+                    <h3 className="font-semibold text-slate-800">Guru Penggerak Angkatan 10</h3>
+                    <p className="text-slate-600">Kab Klaten (2024)</p>
                   </div>
                 </div>
               </div>

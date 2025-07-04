@@ -11,7 +11,7 @@ const KelasDetail = () => {
   const { grade } = useParams();
   
   const classInfo = {
-    'v': { title: 'Kelas V', color: 'from-blue-500 to-blue-600' },
+    'vii': { title: 'Kelas VII', color: 'from-blue-500 to-blue-600' },
     'viii': { title: 'Kelas VIII', color: 'from-green-500 to-green-600' },
     'ix': { title: 'Kelas IX', color: 'from-purple-500 to-purple-600' }
   };
@@ -21,30 +21,30 @@ const KelasDetail = () => {
   const materials = [
     {
       chapter: 'Bab 1',
-      title: 'Asmaul Husna',
-      description: 'Mempelajari 99 nama-nama Allah yang mulia dan maknanya dalam kehidupan sehari-hari',
+      title: 'Lebih Dekat dengan Allah SWT',
+      description: 'Memahami kebesaran Allah melalui Asmaul Husna dan menerapkannya dalam kehidupan sehari-hari',
       resources: [
-        { type: 'pdf', name: 'Materi Asmaul Husna', size: '2.1 MB' },
-        { type: 'video', name: 'Video Pembelajaran', duration: '25 menit' }
+        { type: 'pdf', name: 'Modul Lengkap', size: '2.1 MB' },
+        { type: 'video', name: 'Rangkuman Infografis', duration: 'PDF' }
       ]
     },
     {
       chapter: 'Bab 2',
-      title: 'Sejarah Perjuangan Nabi di Mekkah',
-      description: 'Memahami perjuangan Rasulullah SAW dalam menyebarkan Islam di kota Mekkah',
+      title: 'Hidup Tenang dengan Kejujuran, Amanah, dan Istiqamah',
+      description: 'Mempelajari nilai-nilai akhlak mulia dan cara mengimplementasikannya dalam kehidupan remaja',
       resources: [
-        { type: 'pdf', name: 'Sejarah Perjuangan Nabi', size: '3.2 MB' },
-        { type: 'video', name: 'Video Dokumenter', duration: '35 menit' }
+        { type: 'pdf', name: 'Modul Pembelajaran', size: '3.2 MB' },
+        { type: 'video', name: 'Video Pembelajaran', duration: '25 menit' }
       ]
     },
     {
       chapter: 'Bab 3',
-      title: 'Berpikir Kritis & Demokrasi',
-      description: 'Mengembangkan kemampuan berpikir kritis dalam perspektif Islam dan nilai-nilai demokrasi',
+      title: 'Indahnya Kebersamaan dengan Salat Berjamaah',
+      description: 'Memahami hikmah dan tata cara salat berjamaah sebagai bentuk persatuan umat',
       resources: [
-        { type: 'pdf', name: 'Berpikir Kritis Islam', size: '1.8 MB' },
-        { type: 'video', name: 'Video Diskusi', duration: '20 menit' },
-        { type: 'exam', name: 'Kisi-kisi Penilaian', size: '500 KB' }
+        { type: 'pdf', name: 'Panduan Salat Berjamaah', size: '1.8 MB' },
+        { type: 'video', name: 'Tutorial Praktik', duration: '20 menit' },
+        { type: 'exam', name: 'Kisi-kisi PTS', size: '500 KB' }
       ]
     }
   ];
@@ -65,7 +65,7 @@ const KelasDetail = () => {
               <BookOpen className="w-10 h-10 text-white" />
             </div>
             <h1 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4">
-              Ruang Belajar - {currentClass.title}
+              Ruang Belajar PAI - {currentClass.title}
             </h1>
             <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-green-600 mx-auto rounded-full"></div>
           </div>
@@ -75,17 +75,17 @@ const KelasDetail = () => {
             <CardContent className="p-8">
               <div className="flex items-center gap-3 mb-6">
                 <AlertCircle className="w-6 h-6 text-orange-600" />
-                <h2 className="text-2xl font-bold text-slate-800">Pengumuman Terbaru</h2>
+                <h2 className="text-2xl font-bold text-slate-800">Info Penting</h2>
               </div>
               
               <div className="bg-gradient-to-r from-orange-50 to-red-50 p-6 rounded-lg border-l-4 border-orange-600">
                 <div className="flex items-start gap-3">
                   <Calendar className="w-5 h-5 text-orange-600 mt-1" />
                   <div>
-                    <h3 className="font-semibold text-slate-800 mb-2">Update Terbaru: Penilaian Harian Bab 3</h3>
+                    <h3 className="font-semibold text-slate-800 mb-2">Penilaian Tengah Semester (PTS)</h3>
                     <p className="text-slate-700">
-                      Jangan lupa, Penilaian Harian bab 3 akan dilaksanakan pada hari <strong>Jumat, 10 Januari 2025</strong>. 
-                      Kisi-kisi bisa diunduh di bawah pada materi Bab 3.
+                      PTS akan dilaksanakan pada <strong>pekan ketiga bulan September</strong>. 
+                      Harap pelajari kembali materi dari Bab 1 hingga Bab 3. Kisi-kisi tersedia di materi pembelajaran.
                     </p>
                     <Badge className="mt-3 bg-orange-100 text-orange-700">Penting</Badge>
                   </div>
@@ -96,7 +96,7 @@ const KelasDetail = () => {
 
           {/* Learning Materials */}
           <div className="mb-12">
-            <h2 className="text-3xl font-bold text-slate-800 mb-8 text-center">Materi Pembelajaran</h2>
+            <h2 className="text-3xl font-bold text-slate-800 mb-8 text-center">Semester Ganjil</h2>
             
             <div className="space-y-8">
               {materials.map((material, index) => (
@@ -148,14 +148,14 @@ const KelasDetail = () => {
                     <Users className="w-8 h-8 text-white" />
                   </div>
                   <div>
-                    <h2 className="text-2xl font-bold mb-2">Akses Tugas & Nilai</h2>
+                    <h2 className="text-2xl font-bold mb-2">Portal Tugas, Ulangan, dan Nilai</h2>
                     <p className="text-slate-300">
-                      Untuk melihat daftar tugas, mengumpulkan pekerjaan, dan memeriksa informasi nilai, silakan masuk ke portal aman kita.
+                      Semua aktivitas terkait pengumpulan tugas, ulangan harian, dan informasi nilai dilakukan melalui platform Google Classroom untuk menjaga kerahasiaan dan kemudahan rekapitulasi.
                     </p>
                   </div>
                 </div>
                 <Button className="bg-gradient-to-r from-blue-600 to-green-600 text-white rounded-full px-8 py-3 shadow-lg hover:shadow-xl transition-all duration-300 flex-shrink-0 ml-4">
-                  Akses Portal
+                  Masuk Google Classroom {currentClass.title}
                 </Button>
               </div>
             </CardContent>

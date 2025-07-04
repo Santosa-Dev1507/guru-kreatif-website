@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Book, User, Briefcase, GraduationCap } from 'lucide-react';
+import { Menu, X, Book, User, Briefcase, GraduationCap, Phone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const Navigation = () => {
@@ -10,9 +10,10 @@ const Navigation = () => {
 
   const navigation = [
     { name: 'Beranda', href: '/', icon: Book },
-    { name: 'Profil Saya', href: '/profil', icon: User },
+    { name: 'Profil', href: '/profil', icon: User },
     { name: 'Portofolio', href: '/portofolio', icon: Briefcase },
-    { name: 'Materi & Kelas', href: '/materi-kelas', icon: GraduationCap },
+    { name: 'Ruang Kelas', href: '/materi-kelas', icon: GraduationCap },
+    { name: 'Kontak', href: '/kontak', icon: Phone },
   ];
 
   const isActive = (href: string) => {
@@ -26,7 +27,7 @@ const Navigation = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link to="/" className="font-bold text-xl bg-gradient-to-r from-blue-600 to-green-600 bg-clip-text text-transparent">
-            Pendidik PAI Digital
+            Budi Santosa - Guru PAI Digital
           </Link>
 
           {/* Desktop Navigation */}

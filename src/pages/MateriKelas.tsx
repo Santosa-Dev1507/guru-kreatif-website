@@ -10,8 +10,8 @@ import Navigation from '@/components/Navigation';
 const MateriKelas = () => {
   const classes = [
     {
-      grade: 'V',
-      title: 'Kelas V',
+      grade: 'VII',
+      title: 'Kelas VII',
       studentCount: 32,
       color: 'from-blue-500 to-blue-600',
       bgColor: 'from-blue-50 to-blue-100'
@@ -41,11 +41,11 @@ const MateriKelas = () => {
           {/* Header */}
           <div className="text-center mb-16">
             <h1 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4">
-              Pusat Pembelajaran Digital
+              Ruang Kelas PAI
             </h1>
             <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-green-600 mx-auto rounded-full mb-6"></div>
             <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-              Silakan pilih kelas Anda untuk melihat pengumuman, jadwal, dan materi pembelajaran.
+              Selamat datang di pusat pembelajaran digital PAI SMPN 5 Klaten. Silakan pilih kelasmu untuk melihat pengumuman, jadwal, materi, dan akses ke portal tugas.
             </p>
           </div>
 
@@ -97,10 +97,10 @@ const MateriKelas = () => {
                 <div className="space-y-4">
                   <div className="p-4 bg-blue-50 rounded-lg border-l-4 border-blue-600">
                     <div className="flex items-start justify-between mb-2">
-                      <h3 className="font-semibold text-slate-800">Ujian Tengah Semester</h3>
+                      <h3 className="font-semibold text-slate-800">Penilaian Tengah Semester</h3>
                       <Badge variant="secondary" className="bg-blue-100 text-blue-700">Penting</Badge>
                     </div>
-                    <p className="text-sm text-slate-600">UTS PAI akan dilaksanakan pada tanggal 15-17 Januari 2025. Pastikan semua siswa sudah mempersiapkan diri dengan baik.</p>
+                    <p className="text-sm text-slate-600">PTS PAI akan dilaksanakan pada pekan ketiga bulan September. Harap pelajari kembali materi dari Bab 1 hingga Bab 3.</p>
                     <p className="text-xs text-slate-500 mt-2">3 hari yang lalu</p>
                   </div>
                   
@@ -163,12 +163,12 @@ const MateriKelas = () => {
           <Card className="mt-12 shadow-xl border-0 bg-gradient-to-r from-slate-800 to-slate-900 text-white">
             <CardContent className="p-8 text-center">
               <Lock className="w-16 h-16 mx-auto mb-6 text-blue-400" />
-              <h2 className="text-3xl font-bold mb-4">Portal Tugas & Nilai</h2>
+              <h2 className="text-3xl font-bold mb-4">Portal Google Classroom</h2>
               <p className="text-slate-300 mb-6 max-w-2xl mx-auto">
-                Untuk melihat daftar tugas, mengumpulkan pekerjaan, dan memeriksa informasi nilai, silakan masuk ke portal aman kita melalui tombol di bawah ini. Semua data bersifat rahasia dan hanya bisa diakses oleh siswa terdaftar.
+                Semua aktivitas terkait pengumpulan tugas, ulangan harian, dan informasi nilai dilakukan melalui platform Google Classroom untuk menjaga kerahasiaan dan kemudahan rekapitulasi.
               </p>
               <Button className="bg-gradient-to-r from-blue-600 to-green-600 text-white rounded-full px-8 py-3 shadow-lg hover:shadow-xl transition-all duration-300">
-                Akses Portal Siswa
+                Masuk Google Classroom
               </Button>
             </CardContent>
           </Card>
