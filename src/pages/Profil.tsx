@@ -22,8 +22,19 @@ const Profil = () => {
           {/* Profile Section */}
           <div className="grid md:grid-cols-3 gap-8 mb-16">
             <div className="md:col-span-1">
-              <div className="aspect-square bg-gradient-to-br from-blue-100 to-green-100 rounded-2xl flex items-center justify-center mb-6 shadow-lg">
-                <div className="w-32 h-32 bg-gradient-to-br from-blue-600 to-green-600 rounded-full flex items-center justify-center">
+              <div className="aspect-square bg-gradient-to-br from-blue-100 to-green-100 rounded-2xl flex items-center justify-center mb-6 shadow-lg overflow-hidden">
+                <img 
+                  src="https://prnt.sc/Gny6naPCNkLH" 
+                  alt="Budi Santosa" 
+                  className="w-full h-full object-cover"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.style.display = 'none';
+                    const fallback = target.nextElementSibling as HTMLElement;
+                    if (fallback) fallback.style.display = 'flex';
+                  }}
+                />
+                <div className="w-full h-full bg-gradient-to-br from-blue-600 to-green-600 items-center justify-center hidden">
                   <Users className="w-16 h-16 text-white" />
                 </div>
               </div>

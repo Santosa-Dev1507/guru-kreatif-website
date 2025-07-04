@@ -27,7 +27,7 @@ const Navigation = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link to="/" className="font-bold text-xl bg-gradient-to-r from-blue-600 to-green-600 bg-clip-text text-transparent">
-            Budi Santosa - Guru PAI Digital
+            Guru PAI Digital
           </Link>
 
           {/* Desktop Navigation */}

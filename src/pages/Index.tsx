@@ -39,7 +39,7 @@ const Index = () => {
             <Button asChild variant="outline" size="lg" className="border-2 border-green-600 text-green-600 hover:bg-green-600 hover:text-white px-8 py-3 rounded-full transition-all duration-300">
               <Link to="/portofolio" className="flex items-center gap-2">
                 <Star className="w-5 h-5" />
-                Lihat Portofolio Desain
+                Lihat Karya Saya
                 <ArrowRight className="w-5 h-5" />
               </Link>
             </Button>
@@ -136,7 +136,7 @@ const Index = () => {
             Tertarik untuk berkolaborasi atau ingin berdiskusi tentang pendidikan dan desain? Saya selalu terbuka untuk berbagi dan belajar bersama.
           </p>
           <div className="flex justify-center gap-4 text-sm text-slate-400">
-            <span>© 2024 Budi Santosa - Guru PAI Digital</span>
+            <span>© 2025 Budi Santosa - Guru PAI Digital</span>
             <span>•</span>
             <span>Made with ❤️ for Education</span>
           </div>
