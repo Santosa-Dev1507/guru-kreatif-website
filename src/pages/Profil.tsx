@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Award, BookOpen, Users, Lightbulb } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
@@ -24,7 +23,7 @@ const Profil = () => {
             <div className="md:col-span-1">
               <div className="aspect-square bg-gradient-to-br from-blue-100 to-green-100 rounded-2xl flex items-center justify-center mb-6 shadow-lg overflow-hidden">
                 <img 
-                  src="https://prnt.sc/Gny6naPCNkLH" 
+                  src="/lovable-uploads/eb7eb705-3f7b-4f53-a462-c0c540a6abe4.png" 
                   alt="Budi Santosa" 
                   className="w-full h-full object-cover"
                   onError={(e) => {
