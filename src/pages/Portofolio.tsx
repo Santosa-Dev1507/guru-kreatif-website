@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Eye, ExternalLink, Filter, Image, FileText, Users, Megaphone, Book } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
@@ -81,7 +80,7 @@ const Portofolio = () => {
           {/* Header */}
           <div className="text-center mb-12">
             <h1 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4">
-              Portofolio Desain Pembelajaran
+              Karya Saya
             </h1>
             <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-green-600 mx-auto rounded-full mb-6"></div>
             <p className="text-lg text-slate-600 max-w-2xl mx-auto">
