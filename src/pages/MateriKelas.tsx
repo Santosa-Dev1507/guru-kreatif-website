@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Users, BookOpen, Download, Play, FileText, Lock, GraduationCap } from 'lucide-react';
@@ -12,21 +11,18 @@ const MateriKelas = () => {
     {
       grade: 'VII',
       title: 'Kelas VII',
-      studentCount: 32,
       color: 'from-blue-500 to-blue-600',
       bgColor: 'from-blue-50 to-blue-100'
     },
     {
       grade: 'VIII',
       title: 'Kelas VIII',
-      studentCount: 28,
       color: 'from-green-500 to-green-600',
       bgColor: 'from-green-50 to-green-100'
     },
     {
       grade: 'IX',
       title: 'Kelas IX',
-      studentCount: 30,
       color: 'from-purple-500 to-purple-600',
       bgColor: 'from-purple-50 to-purple-100'
     }
@@ -66,10 +62,6 @@ const MateriKelas = () => {
                     <h3 className="text-2xl font-bold text-slate-800 mb-2">
                       {classInfo.title}
                     </h3>
-                    <div className="flex items-center justify-center gap-2 text-slate-600">
-                      <Users className="w-4 h-4" />
-                      <span>{classInfo.studentCount} Siswa</span>
-                    </div>
                   </div>
                   
                   <Button asChild className={`w-full bg-gradient-to-r ${classInfo.color} text-white rounded-full py-3 shadow-lg hover:shadow-xl transition-all duration-300`}>

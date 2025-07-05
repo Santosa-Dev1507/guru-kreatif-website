@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import { Download, Play, FileText, Calendar, Users, BookOpen, Video, AlertCircle } from 'lucide-react';
+import { Download, Play, FileText, Calendar, Users, BookOpen, Video, AlertCircle, ExternalLink } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -18,7 +18,8 @@ const KelasDetail = () => {
 
   const currentClass = classInfo[grade as keyof typeof classInfo];
 
-  const materials = [
+  // Materials for Class VII and VIII (existing structure)
+  const defaultMaterials = [
     {
       chapter: 'Bab 1',
       title: 'Lebih Dekat dengan Allah SWT',
@@ -48,6 +49,66 @@ const KelasDetail = () => {
       ]
     }
   ];
+
+  // Complete materials for Class IX
+  const class9Materials = {
+    ganjil: [
+      {
+        chapter: 'Bab 1',
+        title: 'Al-Qur\'an Menginspirasi: Meraih Kesuksesan Dengan Semangat Mencari Ilmu',
+        link: 'https://drive.google.com/file/d/11xvg6bVhzvL63XjlK1UoJnppjaUY3cAJ/view?usp=sharing'
+      },
+      {
+        chapter: 'Bab 2',
+        title: 'Meyakini Hari Akhir Dengan Mawas Diri',
+        link: 'https://drive.google.com/file/d/170cOG97hPVo8UKXI8J0B1ifO3IRHlXd-/view?usp=sharing'
+      },
+      {
+        chapter: 'Bab 3',
+        title: 'Indahnya Etika Pergaulan Dan Komunikasi Islami',
+        link: 'https://drive.google.com/file/d/15KOzh5ANysss7c-0c-WjVh-5wh5GHUk3/view?usp=sharing'
+      },
+      {
+        chapter: 'Bab 4',
+        title: 'Bersyukur Dengan Akikah Peduli Sesama Dengan Berkurban',
+        link: 'https://drive.google.com/file/d/1WtqcKQA3uO_cGsn2mYSa86rvughfHZkt/view?usp=sharing'
+      },
+      {
+        chapter: 'Bab 5',
+        title: 'Mengapresiasi Peradaban Daulah Usmani',
+        link: 'https://drive.google.com/file/d/1DysF_UmnpxKjqlzSIxb-x9or0hJm2ASL/view?usp=sharing'
+      }
+    ],
+    genap: [
+      {
+        chapter: 'Bab 6',
+        title: 'Al-Qur\'an Menginspirasi: Menjadi Khalifatullah Fil \'Ard Penebar Kasih Sayang',
+        link: 'https://drive.google.com/file/d/100jEMU_lUbIVoI6FrhPuWNEcyqVihORG/view?usp=sharing'
+      },
+      {
+        chapter: 'Bab 7',
+        title: 'Meraih Ketenangan Jiwa Dengan Meyakini Qada Dan Qadar',
+        link: 'https://drive.google.com/file/d/1ZTL3FOqkDYhZRXpI9bk8geq4dhbVxu4u/view?usp=sharing'
+      },
+      {
+        chapter: 'Bab 8',
+        title: 'Dengan Seni Islami, Kehidupan Semakin Harmoni',
+        link: 'https://drive.google.com/file/d/1iaXbprJ8qkH-z0H1YSUj7cInc44o8bNB/view?usp=sharing'
+      },
+      {
+        chapter: 'Bab 9',
+        title: 'Mengenal Imam Madzhab, Ibadah Semakin Mantab',
+        link: 'https://drive.google.com/file/d/1x-mwNAW0aEn2GqKPvCbNtGpcXn2cBXFz/view?usp=drive_link'
+      },
+      {
+        chapter: 'Bab 10',
+        title: 'Mengapresiasi Peradaban Pada Masa Syafawi Dan India Mughal',
+        link: 'https://drive.google.com/file/d/1cyFqISyvwCk0L2QRXdsJjyUlQR46j60J/view?usp=sharing'
+      }
+    ]
+  };
+
+  const materials = grade === 'ix' ? null : defaultMaterials;
 
   if (!currentClass) {
     return <div>Kelas tidak ditemukan</div>;
@@ -95,49 +156,117 @@ const KelasDetail = () => {
           </Card>
 
           {/* Learning Materials */}
-          <div className="mb-12">
-            <h2 className="text-3xl font-bold text-slate-800 mb-8 text-center">Semester Ganjil</h2>
-            
-            <div className="space-y-8">
-              {materials.map((material, index) => (
-                <Card key={index} className="shadow-xl border-0 hover:shadow-2xl transition-all duration-300">
-                  <CardContent className="p-8">
-                    <div className="flex items-start gap-6">
-                      <div className={`w-16 h-16 bg-gradient-to-r ${currentClass.color} rounded-xl flex items-center justify-center text-white font-bold text-lg shadow-lg flex-shrink-0`}>
-                        {material.chapter.split(' ')[1]}
-                      </div>
-                      
-                      <div className="flex-1">
-                        <div className="flex items-center gap-3 mb-3">
-                          <h3 className="text-2xl font-bold text-slate-800">{material.title}</h3>
-                          <Badge variant="outline" className="text-slate-600">{material.chapter}</Badge>
-                        </div>
-                        <p className="text-slate-600 mb-6 leading-relaxed">{material.description}</p>
-                        
-                        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                          {material.resources.map((resource, resourceIndex) => (
-                            <div key={resourceIndex} className="flex items-center gap-3 p-4 bg-slate-50 rounded-lg hover:bg-slate-100 transition-colors cursor-pointer group">
-                              {resource.type === 'pdf' && <FileText className="w-5 h-5 text-red-600 group-hover:scale-110 transition-transform" />}
-                              {resource.type === 'video' && <Video className="w-5 h-5 text-blue-600 group-hover:scale-110 transition-transform" />}
-                              {resource.type === 'exam' && <Download className="w-5 h-5 text-green-600 group-hover:scale-110 transition-transform" />}
-                              
-                              <div className="flex-1">
-                                <h4 className="font-semibold text-slate-800 text-sm">{resource.name}</h4>
-                                <p className="text-xs text-slate-600">
-                                  {resource.size && resource.size}
-                                  {resource.duration && resource.duration}
-                                </p>
-                              </div>
+          {grade === 'ix' ? (
+            // Special layout for Class IX with complete materials
+            <div className="mb-12">
+              <h2 className="text-3xl font-bold text-slate-800 mb-8 text-center">Materi Lengkap Kelas 9</h2>
+              
+              {/* Semester Ganjil */}
+              <div className="mb-12">
+                <h3 className="text-2xl font-bold text-slate-800 mb-6">Semester Ganjil</h3>
+                <div className="space-y-4">
+                  {class9Materials.ganjil.map((material, index) => (
+                    <Card key={index} className="shadow-lg border-0 hover:shadow-xl transition-all duration-300">
+                      <CardContent className="p-6">
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center gap-4">
+                            <div className={`w-12 h-12 bg-gradient-to-r ${currentClass.color} rounded-lg flex items-center justify-center text-white font-bold flex-shrink-0`}>
+                              {material.chapter.split(' ')[1]}
                             </div>
-                          ))}
+                            <div>
+                              <h4 className="font-semibold text-slate-800 text-lg">{material.title}</h4>
+                              <Badge variant="outline" className="text-slate-600 mt-1">{material.chapter}</Badge>
+                            </div>
+                          </div>
+                          <Button asChild className={`bg-gradient-to-r ${currentClass.color} text-white rounded-full px-6 shadow-lg hover:shadow-xl transition-all duration-300`}>
+                            <a href={material.link} target="_blank" rel="noopener noreferrer">
+                              <ExternalLink className="w-4 h-4 mr-2" />
+                              Buka Materi
+                            </a>
+                          </Button>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
+              </div>
+
+              {/* Semester Genap */}
+              <div className="mb-12">
+                <h3 className="text-2xl font-bold text-slate-800 mb-6">Semester Genap</h3>
+                <div className="space-y-4">
+                  {class9Materials.genap.map((material, index) => (
+                    <Card key={index} className="shadow-lg border-0 hover:shadow-xl transition-all duration-300">
+                      <CardContent className="p-6">
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center gap-4">
+                            <div className={`w-12 h-12 bg-gradient-to-r ${currentClass.color} rounded-lg flex items-center justify-center text-white font-bold flex-shrink-0`}>
+                              {material.chapter.split(' ')[1]}
+                            </div>
+                            <div>
+                              <h4 className="font-semibold text-slate-800 text-lg">{material.title}</h4>
+                              <Badge variant="outline" className="text-slate-600 mt-1">{material.chapter}</Badge>
+                            </div>
+                          </div>
+                          <Button asChild className={`bg-gradient-to-r ${currentClass.color} text-white rounded-full px-6 shadow-lg hover:shadow-xl transition-all duration-300`}>
+                            <a href={material.link} target="_blank" rel="noopener noreferrer">
+                              <ExternalLink className="w-4 h-4 mr-2" />
+                              Buka Materi
+                            </a>
+                          </Button>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ) : (
+            // Default layout for Class VII and VIII
+            <div className="mb-12">
+              <h2 className="text-3xl font-bold text-slate-800 mb-8 text-center">Semester Ganjil</h2>
+              
+              <div className="space-y-8">
+                {materials?.map((material, index) => (
+                  <Card key={index} className="shadow-xl border-0 hover:shadow-2xl transition-all duration-300">
+                    <CardContent className="p-8">
+                      <div className="flex items-start gap-6">
+                        <div className={`w-16 h-16 bg-gradient-to-r ${currentClass.color} rounded-xl flex items-center justify-center text-white font-bold text-lg shadow-lg flex-shrink-0`}>
+                          {material.chapter.split(' ')[1]}
+                        </div>
+                        
+                        <div className="flex-1">
+                          <div className="flex items-center gap-3 mb-3">
+                            <h3 className="text-2xl font-bold text-slate-800">{material.title}</h3>
+                            <Badge variant="outline" className="text-slate-600">{material.chapter}</Badge>
+                          </div>
+                          <p className="text-slate-600 mb-6 leading-relaxed">{material.description}</p>
+                          
+                          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                            {material.resources.map((resource, resourceIndex) => (
+                              <div key={resourceIndex} className="flex items-center gap-3 p-4 bg-slate-50 rounded-lg hover:bg-slate-100 transition-colors cursor-pointer group">
+                                {resource.type === 'pdf' && <FileText className="w-5 h-5 text-red-600 group-hover:scale-110 transition-transform" />}
+                                {resource.type === 'video' && <Video className="w-5 h-5 text-blue-600 group-hover:scale-110 transition-transform" />}
+                                {resource.type === 'exam' && <Download className="w-5 h-5 text-green-600 group-hover:scale-110 transition-transform" />}
+                                
+                                <div className="flex-1">
+                                  <h4 className="font-semibold text-slate-800 text-sm">{resource.name}</h4>
+                                  <p className="text-xs text-slate-600">
+                                    {resource.size && resource.size}
+                                    {resource.duration && resource.duration}
+                                  </p>
+                                </div>
+                              </div>
+                            ))}
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
             </div>
-          </div>
+          )}
 
           {/* Portal Access */}
           <Card className="shadow-xl border-0 bg-gradient-to-r from-slate-800 to-slate-900 text-white">
