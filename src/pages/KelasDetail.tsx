@@ -1,5 +1,4 @@
-
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Download, Play, FileText, Calendar, Users, BookOpen, Video, AlertCircle, ExternalLink } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
@@ -9,6 +8,7 @@ import Navigation from '@/components/Navigation';
 
 const KelasDetail = () => {
   const { grade } = useParams();
+  const [clickedChapters, setClickedChapters] = useState<Set<string>>(new Set());
   
   const classInfo = {
     'vii': { title: 'Kelas VII', color: 'from-blue-500 to-blue-600' },
@@ -18,7 +18,11 @@ const KelasDetail = () => {
 
   const currentClass = classInfo[grade as keyof typeof classInfo];
 
-  // Materials for Class VII and VIII (existing structure)
+  const handleChapterClick = (chapterKey: string, link: string) => {
+    setClickedChapters(prev => new Set(prev).add(chapterKey));
+    window.open(link, '_blank', 'noopener noreferrer');
+  };
+
   const defaultMaterials = [
     {
       chapter: 'Bab 1',
@@ -50,7 +54,6 @@ const KelasDetail = () => {
     }
   ];
 
-  // Complete materials for Class IX
   const class9Materials = {
     ganjil: [
       {
@@ -165,29 +168,64 @@ const KelasDetail = () => {
               <div className="mb-12">
                 <h3 className="text-2xl font-bold text-slate-800 mb-6">Semester Ganjil</h3>
                 <div className="space-y-4">
-                  {class9Materials.ganjil.map((material, index) => (
-                    <Card key={index} className="shadow-lg border-0 hover:shadow-xl transition-all duration-300">
-                      <CardContent className="p-6">
-                        <div className="flex items-center justify-between">
-                          <div className="flex items-center gap-4">
-                            <div className={`w-12 h-12 bg-gradient-to-r ${currentClass.color} rounded-lg flex items-center justify-center text-white font-bold flex-shrink-0`}>
-                              {material.chapter.split(' ')[1]}
+                  {class9Materials.ganjil.map((material, index) => {
+                    const chapterKey = `ganjil-${material.chapter}`;
+                    const isClicked = clickedChapters.has(chapterKey);
+                    
+                    return (
+                      <Card 
+                        key={index} 
+                        className={`shadow-lg border-0 hover:shadow-xl transition-all duration-500 transform hover:-translate-y-1 ${
+                          isClicked 
+                            ? 'bg-gradient-to-r from-green-50 to-emerald-50 border-l-4 border-green-500 scale-[1.02]' 
+                            : 'hover:scale-[1.01]'
+                        }`}
+                      >
+                        <CardContent className="p-6">
+                          <div className="flex items-center justify-between">
+                            <div className="flex items-center gap-4">
+                              <div className={`w-12 h-12 ${
+                                isClicked 
+                                  ? 'bg-gradient-to-r from-green-500 to-emerald-500 animate-pulse' 
+                                  : `bg-gradient-to-r ${currentClass.color}`
+                              } rounded-lg flex items-center justify-center text-white font-bold flex-shrink-0 transition-all duration-300`}>
+                                {material.chapter.split(' ')[1]}
+                                {isClicked && <span className="absolute -top-1 -right-1 w-3 h-3 bg-green-400 rounded-full animate-ping"></span>}
+                              </div>
+                              <div className="relative">
+                                <h4 className={`font-semibold text-lg transition-colors duration-300 ${
+                                  isClicked ? 'text-green-700' : 'text-slate-800'
+                                }`}>
+                                  {material.title}
+                                </h4>
+                                <Badge 
+                                  variant="outline" 
+                                  className={`mt-1 transition-colors duration-300 ${
+                                    isClicked 
+                                      ? 'text-green-600 border-green-300 bg-green-50' 
+                                      : 'text-slate-600'
+                                  }`}
+                                >
+                                  {material.chapter} {isClicked && '✓ Dibaca'}
+                                </Badge>
+                              </div>
                             </div>
-                            <div>
-                              <h4 className="font-semibold text-slate-800 text-lg">{material.title}</h4>
-                              <Badge variant="outline" className="text-slate-600 mt-1">{material.chapter}</Badge>
-                            </div>
-                          </div>
-                          <Button asChild className={`bg-gradient-to-r ${currentClass.color} text-white rounded-full px-6 shadow-lg hover:shadow-xl transition-all duration-300`}>
-                            <a href={material.link} target="_blank" rel="noopener noreferrer">
+                            <Button 
+                              onClick={() => handleChapterClick(chapterKey, material.link)}
+                              className={`${
+                                isClicked 
+                                  ? 'bg-gradient-to-r from-green-500 to-emerald-500 text-white shadow-green-200' 
+                                  : `bg-gradient-to-r ${currentClass.color} text-white`
+                              } rounded-full px-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 active:scale-95`}
+                            >
                               <ExternalLink className="w-4 h-4 mr-2" />
-                              Buka Materi
-                            </a>
-                          </Button>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  ))}
+                              {isClicked ? 'Buka Lagi' : 'Buka Materi'}
+                            </Button>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    );
+                  })}
                 </div>
               </div>
 
@@ -195,29 +233,64 @@ const KelasDetail = () => {
               <div className="mb-12">
                 <h3 className="text-2xl font-bold text-slate-800 mb-6">Semester Genap</h3>
                 <div className="space-y-4">
-                  {class9Materials.genap.map((material, index) => (
-                    <Card key={index} className="shadow-lg border-0 hover:shadow-xl transition-all duration-300">
-                      <CardContent className="p-6">
-                        <div className="flex items-center justify-between">
-                          <div className="flex items-center gap-4">
-                            <div className={`w-12 h-12 bg-gradient-to-r ${currentClass.color} rounded-lg flex items-center justify-center text-white font-bold flex-shrink-0`}>
-                              {material.chapter.split(' ')[1]}
+                  {class9Materials.genap.map((material, index) => {
+                    const chapterKey = `genap-${material.chapter}`;
+                    const isClicked = clickedChapters.has(chapterKey);
+                    
+                    return (
+                      <Card 
+                        key={index} 
+                        className={`shadow-lg border-0 hover:shadow-xl transition-all duration-500 transform hover:-translate-y-1 ${
+                          isClicked 
+                            ? 'bg-gradient-to-r from-green-50 to-emerald-50 border-l-4 border-green-500 scale-[1.02]' 
+                            : 'hover:scale-[1.01]'
+                        }`}
+                      >
+                        <CardContent className="p-6">
+                          <div className="flex items-center justify-between">
+                            <div className="flex items-center gap-4">
+                              <div className={`w-12 h-12 ${
+                                isClicked 
+                                  ? 'bg-gradient-to-r from-green-500 to-emerald-500 animate-pulse' 
+                                  : `bg-gradient-to-r ${currentClass.color}`
+                              } rounded-lg flex items-center justify-center text-white font-bold flex-shrink-0 transition-all duration-300 relative`}>
+                                {material.chapter.split(' ')[1]}
+                                {isClicked && <span className="absolute -top-1 -right-1 w-3 h-3 bg-green-400 rounded-full animate-ping"></span>}
+                              </div>
+                              <div>
+                                <h4 className={`font-semibold text-lg transition-colors duration-300 ${
+                                  isClicked ? 'text-green-700' : 'text-slate-800'
+                                }`}>
+                                  {material.title}
+                                </h4>
+                                <Badge 
+                                  variant="outline" 
+                                  className={`mt-1 transition-colors duration-300 ${
+                                    isClicked 
+                                      ? 'text-green-600 border-green-300 bg-green-50' 
+                                      : 'text-slate-600'
+                                  }`}
+                                >
+                                  {material.chapter} {isClicked && '✓ Dibaca'}
+                                </Badge>
+                              </div>
                             </div>
-                            <div>
-                              <h4 className="font-semibold text-slate-800 text-lg">{material.title}</h4>
-                              <Badge variant="outline" className="text-slate-600 mt-1">{material.chapter}</Badge>
-                            </div>
-                          </div>
-                          <Button asChild className={`bg-gradient-to-r ${currentClass.color} text-white rounded-full px-6 shadow-lg hover:shadow-xl transition-all duration-300`}>
-                            <a href={material.link} target="_blank" rel="noopener noreferrer">
+                            <Button 
+                              onClick={() => handleChapterClick(chapterKey, material.link)}
+                              className={`${
+                                isClicked 
+                                  ? 'bg-gradient-to-r from-green-500 to-emerald-500 text-white shadow-green-200' 
+                                  : `bg-gradient-to-r ${currentClass.color} text-white`
+                              } rounded-full px-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 active:scale-95`}
+                            >
                               <ExternalLink className="w-4 h-4 mr-2" />
-                              Buka Materi
-                            </a>
-                          </Button>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  ))}
+                              {isClicked ? 'Buka Lagi' : 'Buka Materi'}
+                            </Button>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    );
+                  })}
                 </div>
               </div>
             </div>
