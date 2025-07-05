@@ -14,7 +14,7 @@ const Portofolio = () => {
     { name: 'Infografis Materi', icon: Image },
     { name: 'Desain Modul Ajar', icon: Book },
     { name: 'Slide Presentasi', icon: FileText },
-    { name: 'Poster Edukasi', icon: Megaphone },
+    { name: 'Game Interaktif', icon: Megaphone },
   ];
 
   const portfolioItems = [
@@ -44,9 +44,9 @@ const Portofolio = () => {
     },
     {
       id: 4,
-      title: 'Poster Pekan Ramadhan',
-      category: 'Poster Edukasi',
-      description: 'Poster digital untuk kegiatan sekolah dalam menyambut bulan suci Ramadhan.',
+      title: 'Game Pekan Ramadhan',
+      category: 'Game Interaktif',
+      description: 'Game digital interaktif untuk kegiatan sekolah dalam menyambut bulan suci Ramadhan.',
       gradient: 'from-orange-400 to-orange-600',
       icon: Megaphone
     },
@@ -85,7 +85,7 @@ const Portofolio = () => {
             </h1>
             <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-green-600 mx-auto rounded-full mb-6"></div>
             <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-              Berikut adalah beberapa contoh media pembelajaran visual yang saya rancang untuk mendukung proses belajar mengajar di kelas.
+              Berikut adalah beberapa contoh karya saya yang dirancang untuk mendukung proses belajar mengajar di kelas.
             </p>
           </div>
 
