@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Mail, Instagram, Youtube, Facebook, Send, MessageCircle } from 'lucide-react';
+import { Mail, Instagram, Youtube, Facebook, Send } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -38,7 +38,7 @@ const Kontak = () => {
     },
     {
       name: 'TikTok',
-      icon: MessageCircle,
+      icon: null, // We'll use image instead
       description: 'Tempat saya berbagi portofolio visual, infografis materi PAI, dan cuplikan proses kreatif di balik layar. Cocok untuk Anda yang menyukai konten visual.',
       link: 'https://tiktok.com/@boedi.sant0sa',
       color: 'from-black to-gray-800'
@@ -194,7 +194,15 @@ const Kontak = () => {
                   <CardContent className="p-6">
                     <div className="flex items-start gap-4">
                       <div className={`w-16 h-16 bg-gradient-to-r ${social.color} rounded-full flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300`}>
-                        <Icon className="w-8 h-8 text-white" />
+                        {social.name === 'TikTok' ? (
+                          <img 
+                            src="/lovable-uploads/d3cb02dc-6bd1-454f-8614-60ed9bf1e42a.png" 
+                            alt="TikTok Logo" 
+                            className="w-10 h-10 object-contain"
+                          />
+                        ) : (
+                          Icon && <Icon className="w-8 h-8 text-white" />
+                        )}
                       </div>
                       <div className="flex-1">
                         <h3 className="text-xl font-bold text-slate-800 mb-2">{social.name}</h3>
