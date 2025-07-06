@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Users, BookOpen, Download, Play, FileText, Lock, GraduationCap } from 'lucide-react';
@@ -155,12 +156,14 @@ const MateriKelas = () => {
           <Card className="mt-12 shadow-xl border-0 bg-gradient-to-r from-slate-800 to-slate-900 text-white">
             <CardContent className="p-8 text-center">
               <Lock className="w-16 h-16 mx-auto mb-6 text-blue-400" />
-              <h2 className="text-3xl font-bold mb-4">Portal Google Classroom</h2>
+              <h2 className="text-3xl font-bold mb-4">Sistem Informasi Nilai</h2>
               <p className="text-slate-300 mb-6 max-w-2xl mx-auto">
-                Semua aktivitas terkait pengumpulan tugas, ulangan harian, dan informasi nilai dilakukan melalui platform Google Classroom untuk menjaga kerahasiaan dan kemudahan rekapitulasi.
+                Akses informasi nilai dan data akademik Anda melalui sistem informasi nilai yang terintegrasi dengan database sekolah.
               </p>
-              <Button className="bg-gradient-to-r from-blue-600 to-green-600 text-white rounded-full px-8 py-3 shadow-lg hover:shadow-xl transition-all duration-300">
-                Masuk Google Classroom
+              <Button asChild className="bg-gradient-to-r from-blue-600 to-green-600 text-white rounded-full px-8 py-3 shadow-lg hover:shadow-xl transition-all duration-300">
+                <Link to="/sistem-informasi-nilai">
+                  Masuk Sistem Informasi Nilai
+                </Link>
               </Button>
             </CardContent>
           </Card>
