@@ -35,11 +35,7 @@ const GradesTable: React.FC<GradesTableProps> = ({ studentData }) => {
     { label: 'Nilai ASTS', value: studentData['nilai asts'] },
     { label: 'Nilai ASAS', value: studentData['nilai asas'] },
     { label: 'Nilai Rapor', value: studentData['nilai rapor'] }
-  ].filter(entry => entry.value && entry.value !== '0');
-
-  if (gradeEntries.length === 0) {
-    return null;
-  }
+  ];
 
   return (
     <Card className="shadow-lg border-0">
@@ -62,7 +58,8 @@ const GradesTable: React.FC<GradesTableProps> = ({ studentData }) => {
           </TableHeader>
           <TableBody>
             {gradeEntries.map((entry, index) => {
-              const numericValue = parseFloat(entry.value);
+              const displayValue = entry.value || '0';
+              const numericValue = parseFloat(displayValue);
               const isNumeric = !isNaN(numericValue);
               const status = isNumeric && numericValue >= 75 ? 'Tuntas' : 'Belum Tuntas';
               
@@ -73,7 +70,7 @@ const GradesTable: React.FC<GradesTableProps> = ({ studentData }) => {
                   </TableCell>
                   <TableCell className="text-center">
                     <Badge variant={isNumeric && numericValue >= 75 ? "default" : "destructive"}>
-                      {entry.value}
+                      {displayValue}
                     </Badge>
                   </TableCell>
                   <TableCell className="text-center">
