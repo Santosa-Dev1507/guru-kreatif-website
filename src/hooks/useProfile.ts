@@ -45,7 +45,21 @@ export const useProfile = () => {
         throw error;
       }
 
-      setProfile(data);
+      if (data) {
+        // Convert the database response to match our Profile interface
+        const profileData: Profile = {
+          id: data.id.toString(),
+          'full name': data['full name'],
+          username: data.username,
+          bio: data.bio,
+          avatar_url: data.avatar_url,
+          role: data.role,
+          phone: data.phone,
+          created_at: data.created_at,
+          updated_at: data.updated_at,
+        };
+        setProfile(profileData);
+      }
     } catch (error) {
       console.error('Error fetching profile:', error);
       toast.error('Error loading profile');
@@ -54,13 +68,16 @@ export const useProfile = () => {
     }
   };
 
-  const updateProfile = async (updates: Partial<Profile>) => {
+  const updateProfile = async (updates: Partial<Omit<Profile, 'id' | 'created_at'>>) => {
     if (!user) return { error: 'No user logged in' };
 
     try {
       const { error } = await supabase
         .from('profiles')
-        .update({ ...updates, updated_at: new Date().toISOString() })
+        .update({ 
+          ...updates, 
+          updated_at: new Date().toISOString() 
+        })
         .eq('id', user.id);
 
       if (error) throw error;
