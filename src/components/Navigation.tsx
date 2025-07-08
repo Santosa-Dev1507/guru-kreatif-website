@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Book, User, Briefcase, GraduationCap, Phone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import AuthButton from '@/components/AuthButton';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -51,15 +52,18 @@ const Navigation = () => {
             })}
           </div>
 
-          {/* Mobile menu button */}
-          <Button
-            variant="ghost"
-            size="sm"
-            className="md:hidden"
-            onClick={() => setIsOpen(!isOpen)}
-          >
-            {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-          </Button>
+          {/* Auth Button & Mobile menu button */}
+          <div className="flex items-center gap-2">
+            <AuthButton />
+            <Button
+              variant="ghost"
+              size="sm"
+              className="md:hidden"
+              onClick={() => setIsOpen(!isOpen)}
+            >
+              {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            </Button>
+          </div>
         </div>
 
         {/* Mobile Navigation */}
