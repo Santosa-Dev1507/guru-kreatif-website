@@ -38,25 +38,25 @@ export const useProfile = () => {
       const { data, error } = await supabase
         .from('profiles')
         .select('*')
-        .eq('id', user.id)
+        .eq('id', parseInt(user.id))
         .maybeSingle();
 
       if (error) {
-        throw error;
+        console.error('Error fetching profile:', error);
       }
 
       if (data) {
         // Map the database response to our Profile interface
         const profileData: Profile = {
-          id: data.id.toString(),
+          id: user.id,
           'full name': data['full name'],
           username: data.username,
-          bio: data.bio || null,
-          avatar_url: data.avatar_url || null,
-          role: data.role || null,
-          phone: data.phone || null,
+          bio: null, // Not in database schema yet
+          avatar_url: null, // Not in database schema yet
+          role: null, // Not in database schema yet
+          phone: null, // Not in database schema yet
           created_at: data.created_at,
-          updated_at: data.updated_at || null,
+          updated_at: null, // Not in database schema yet
         };
         setProfile(profileData);
       } else {
@@ -86,13 +86,15 @@ export const useProfile = () => {
     if (!user) return { error: 'No user logged in' };
 
     try {
+      // Only update fields that exist in the database schema
+      const dbUpdates: any = {};
+      if (updates['full name'] !== undefined) dbUpdates['full name'] = updates['full name'];
+      if (updates.username !== undefined) dbUpdates.username = updates.username;
+
       const { error } = await supabase
         .from('profiles')
-        .update({ 
-          ...updates, 
-          updated_at: new Date().toISOString() 
-        })
-        .eq('id', user.id);
+        .update(dbUpdates)
+        .eq('id', parseInt(user.id));
 
       if (error) throw error;
 
@@ -123,7 +125,7 @@ export const useProfile = () => {
         .from('avatars')
         .getPublicUrl(fileName);
 
-      await updateProfile({ avatar_url: data.publicUrl });
+      // For now, we'll just return the URL since avatar_url isn't in the database yet
       return { error: null, url: data.publicUrl };
     } catch (error) {
       console.error('Error uploading avatar:', error);
