@@ -1,28 +1,30 @@
 
 import { useState } from 'react';
-import { useToast } from '@/hooks/use-toast';
+import { supabase } from '@/integrations/supabase/client';
+import { toast } from 'sonner';
 
 interface StudentData {
-  no: string;
-  nama: string;
+  id: string;
   nis: string;
+  nama: string;
   kelas: string;
   semester: string;
-  'nilai bab 1': string;
-  'nilai bab 2': string;
-  'nilai bab 3': string;
-  'nilai bab 4': string;
-  'nilai bab 5': string;
-  'nilai asts': string;
-  'nilai asas': string;
-  'nilai rapor': string;
+  grades?: {
+    nilai_bab_1: string | null;
+    nilai_bab_2: string | null;
+    nilai_bab_3: string | null;
+    nilai_bab_4: string | null;
+    nilai_bab_5: string | null;
+    nilai_asts: string | null;
+    nilai_asas: string | null;
+    nilai_rapor: string | null;
+  };
 }
 
 export const useStudentData = () => {
   const [studentData, setStudentData] = useState<StudentData | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
-  const { toast } = useToast();
 
   const fetchStudentData = async (nis: string) => {
     if (!nis.trim()) {
@@ -34,60 +36,50 @@ export const useStudentData = () => {
     setError('');
 
     try {
-      const response = await fetch('https://docs.google.com/spreadsheets/d/e/2PACX-1vSggYPzXmr58hqsCs9kkNOsScPK-vy7sci7hMnzZnp2xGymha4vg841Bf9F5aSjgWeplmGRK04OgkRn/pub?output=csv');
-      const csvText = await response.text();
-      
-      console.log('CSV Response:', csvText.substring(0, 500));
-      
-      const lines = csvText.split('\n').filter(line => line.trim());
-      if (lines.length === 0) {
-        throw new Error('No data found in spreadsheet');
-      }
+      // Fetch student data with grades
+      const { data: studentData, error: studentError } = await supabase
+        .from('students')
+        .select(`
+          *,
+          grades (
+            nilai_bab_1,
+            nilai_bab_2,
+            nilai_bab_3,
+            nilai_bab_4,
+            nilai_bab_5,
+            nilai_asts,
+            nilai_asas,
+            nilai_rapor
+          )
+        `)
+        .eq('nis', nis.trim())
+        .single();
 
-      const headers = lines[0].split(',').map(header => header.trim().replace(/"/g, '').toLowerCase());
-      console.log('Headers:', headers);
-      
-      let foundStudent = null;
-      for (let i = 1; i < lines.length; i++) {
-        const values = lines[i].split(',').map(value => value.trim().replace(/"/g, ''));
-        console.log(`Row ${i} values:`, values);
-        
-        const studentNIS = values[2];
-        if (studentNIS === nis.trim()) {
-          foundStudent = {
-            no: values[0] || '',
-            nama: values[1] || '',
-            nis: values[2] || '',
-            kelas: values[3] || '',
-            semester: values[4] || '',
-            'nilai bab 1': values[5] || '',
-            'nilai bab 2': values[6] || '',
-            'nilai bab 3': values[7] || '',
-            'nilai bab 4': values[8] || '',
-            'nilai bab 5': values[9] || '',
-            'nilai asts': values[10] || '',
-            'nilai asas': values[11] || '',
-            'nilai rapor': values[12] || ''
-          };
-          break;
+      if (studentError) {
+        if (studentError.code === 'PGRST116') {
+          setError('NIS tidak ditemukan dalam database');
+          setStudentData(null);
+          return;
         }
+        throw studentError;
       }
 
-      if (foundStudent) {
-        console.log('Found student:', foundStudent);
-        setStudentData(foundStudent as StudentData);
-        toast({
-          title: "Data ditemukan!",
-          description: `Selamat datang, ${foundStudent.nama || 'Siswa'}`,
-        });
-      } else {
-        setError('NIS tidak ditemukan dalam database');
-        setStudentData(null);
-        console.log('NIS not found:', nis);
+      if (studentData) {
+        const formattedData: StudentData = {
+          id: studentData.id,
+          nis: studentData.nis,
+          nama: studentData.nama,
+          kelas: studentData.kelas,
+          semester: studentData.semester,
+          grades: studentData.grades?.[0] || undefined
+        };
+
+        setStudentData(formattedData);
+        toast.success(`Selamat datang, ${studentData.nama}!`);
       }
     } catch (err) {
+      console.error('Error fetching student data:', err);
       setError('Gagal mengambil data. Periksa koneksi internet Anda.');
-      console.error('Error fetching data:', err);
     } finally {
       setIsLoading(false);
     }

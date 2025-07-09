@@ -51,12 +51,12 @@ export const useProfile = () => {
           id: data.id.toString(),
           'full name': data['full name'],
           username: data.username,
-          bio: data.bio,
-          avatar_url: data.avatar_url,
-          role: data.role,
-          phone: data.phone,
+          bio: data.bio || null,
+          avatar_url: data.avatar_url || null,
+          role: data.role || null,
+          phone: data.phone || null,
           created_at: data.created_at,
-          updated_at: data.updated_at,
+          updated_at: data.updated_at || null,
         };
         setProfile(profileData);
       }

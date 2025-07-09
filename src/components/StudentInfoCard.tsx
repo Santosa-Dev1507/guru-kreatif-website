@@ -6,19 +6,21 @@ import { Badge } from '@/components/ui/badge';
 import { User } from 'lucide-react';
 
 interface StudentData {
-  no: string;
-  nama: string;
+  id: string;
   nis: string;
+  nama: string;
   kelas: string;
   semester: string;
-  'nilai bab 1': string;
-  'nilai bab 2': string;
-  'nilai bab 3': string;
-  'nilai bab 4': string;
-  'nilai bab 5': string;
-  'nilai asts': string;
-  'nilai asas': string;
-  'nilai rapor': string;
+  grades?: {
+    nilai_bab_1: string | null;
+    nilai_bab_2: string | null;
+    nilai_bab_3: string | null;
+    nilai_bab_4: string | null;
+    nilai_bab_5: string | null;
+    nilai_asts: string | null;
+    nilai_asas: string | null;
+    nilai_rapor: string | null;
+  };
 }
 
 interface StudentInfoCardProps {

@@ -14,6 +14,240 @@ export type Database = {
   }
   public: {
     Tables: {
+      announcements: {
+        Row: {
+          class_id: string | null
+          content: string
+          created_at: string
+          id: string
+          priority: string | null
+          title: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          class_id?: string | null
+          content: string
+          created_at?: string
+          id?: string
+          priority?: string | null
+          title: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          class_id?: string | null
+          content?: string
+          created_at?: string
+          id?: string
+          priority?: string | null
+          title?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "announcements_class_id_fkey"
+            columns: ["class_id"]
+            isOneToOne: false
+            referencedRelation: "classes"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      class_materials: {
+        Row: {
+          class_id: string
+          content: string | null
+          created_at: string
+          file_url: string | null
+          id: string
+          material_type: string | null
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          class_id: string
+          content?: string | null
+          created_at?: string
+          file_url?: string | null
+          id?: string
+          material_type?: string | null
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          class_id?: string
+          content?: string | null
+          created_at?: string
+          file_url?: string | null
+          id?: string
+          material_type?: string | null
+          title?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "class_materials_class_id_fkey"
+            columns: ["class_id"]
+            isOneToOne: false
+            referencedRelation: "classes"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      classes: {
+        Row: {
+          color_scheme: string | null
+          created_at: string
+          description: string | null
+          grade: string
+          id: string
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          color_scheme?: string | null
+          created_at?: string
+          description?: string | null
+          grade: string
+          id?: string
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          color_scheme?: string | null
+          created_at?: string
+          description?: string | null
+          grade?: string
+          id?: string
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      contact_messages: {
+        Row: {
+          created_at: string
+          email: string
+          id: string
+          is_read: boolean | null
+          nama: string
+          pesan: string
+          subjek: string
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          id?: string
+          is_read?: boolean | null
+          nama: string
+          pesan: string
+          subjek: string
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          id?: string
+          is_read?: boolean | null
+          nama?: string
+          pesan?: string
+          subjek?: string
+        }
+        Relationships: []
+      }
+      grades: {
+        Row: {
+          created_at: string
+          id: string
+          nilai_asas: string | null
+          nilai_asts: string | null
+          nilai_bab_1: string | null
+          nilai_bab_2: string | null
+          nilai_bab_3: string | null
+          nilai_bab_4: string | null
+          nilai_bab_5: string | null
+          nilai_rapor: string | null
+          student_id: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          nilai_asas?: string | null
+          nilai_asts?: string | null
+          nilai_bab_1?: string | null
+          nilai_bab_2?: string | null
+          nilai_bab_3?: string | null
+          nilai_bab_4?: string | null
+          nilai_bab_5?: string | null
+          nilai_rapor?: string | null
+          student_id: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          nilai_asas?: string | null
+          nilai_asts?: string | null
+          nilai_bab_1?: string | null
+          nilai_bab_2?: string | null
+          nilai_bab_3?: string | null
+          nilai_bab_4?: string | null
+          nilai_bab_5?: string | null
+          nilai_rapor?: string | null
+          student_id?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "grades_student_id_fkey"
+            columns: ["student_id"]
+            isOneToOne: false
+            referencedRelation: "students"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      portfolio_items: {
+        Row: {
+          category: string
+          created_at: string
+          description: string | null
+          gradient_colors: string | null
+          id: string
+          image_url: string | null
+          project_url: string | null
+          title: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          category: string
+          created_at?: string
+          description?: string | null
+          gradient_colors?: string | null
+          id?: string
+          image_url?: string | null
+          project_url?: string | null
+          title: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          category?: string
+          created_at?: string
+          description?: string | null
+          gradient_colors?: string | null
+          id?: string
+          image_url?: string | null
+          project_url?: string | null
+          title?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
           created_at: string
@@ -32,6 +266,36 @@ export type Database = {
           "full name"?: string | null
           id?: number
           username?: string | null
+        }
+        Relationships: []
+      }
+      students: {
+        Row: {
+          created_at: string
+          id: string
+          kelas: string
+          nama: string
+          nis: string
+          semester: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          kelas: string
+          nama: string
+          nis: string
+          semester: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          kelas?: string
+          nama?: string
+          nis?: string
+          semester?: string
+          updated_at?: string
         }
         Relationships: []
       }
