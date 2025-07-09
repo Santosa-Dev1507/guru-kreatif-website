@@ -8,12 +8,12 @@ interface Profile {
   id: string;
   'full name': string | null;
   username: string | null;
-  bio: string | null;
-  avatar_url: string | null;
-  role: string | null;
-  phone: string | null;
+  bio?: string | null;
+  avatar_url?: string | null;
+  role?: string | null;
+  phone?: string | null;
   created_at: string;
-  updated_at: string | null;
+  updated_at?: string | null;
 }
 
 export const useProfile = () => {
@@ -39,14 +39,14 @@ export const useProfile = () => {
         .from('profiles')
         .select('*')
         .eq('id', user.id)
-        .single();
+        .maybeSingle();
 
-      if (error && error.code !== 'PGRST116') {
+      if (error) {
         throw error;
       }
 
       if (data) {
-        // Convert the database response to match our Profile interface
+        // Map the database response to our Profile interface
         const profileData: Profile = {
           id: data.id.toString(),
           'full name': data['full name'],
@@ -59,6 +59,20 @@ export const useProfile = () => {
           updated_at: data.updated_at || null,
         };
         setProfile(profileData);
+      } else {
+        // Create a basic profile if none exists
+        const basicProfile: Profile = {
+          id: user.id,
+          'full name': null,
+          username: null,
+          bio: null,
+          avatar_url: null,
+          role: null,
+          phone: null,
+          created_at: new Date().toISOString(),
+          updated_at: null,
+        };
+        setProfile(basicProfile);
       }
     } catch (error) {
       console.error('Error fetching profile:', error);
