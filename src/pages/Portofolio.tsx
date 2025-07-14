@@ -43,11 +43,15 @@ const Portofolio = () => {
     },
     {
       id: 4,
-      title: 'Game Pekan Ramadhan',
+      title: 'Game Kelas IX - Mengurutkan Potongan Ayat Al-Quran',
       category: 'Game Interaktif',
-      description: 'Game digital interaktif untuk kegiatan sekolah dalam menyambut bulan suci Ramadhan.',
+      description: 'Game interaktif untuk mengurutkan potongan dan terjemahan ayat Al-Quran. Tersedia untuk Al Mujadallah ayat 11 dan Az Zumar ayat 9.',
       gradient: 'from-orange-400 to-orange-600',
-      icon: Megaphone
+      icon: Megaphone,
+      links: [
+        { title: 'Al Mujadallah ayat 11', url: 'https://smpn5klaten.sch.id/game-pai-kelas9-q-quran-bab1' },
+        { title: 'Az Zumar ayat 9', url: 'https://smpn5klaten.sch.id/game-pai-kelas9-q-quran-bab1-bag2' }
+      ]
     },
     {
       id: 5,
