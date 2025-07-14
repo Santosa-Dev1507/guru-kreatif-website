@@ -90,20 +90,24 @@ const MateriKelas = () => {
                 <div className="space-y-4">
                   <div className="p-4 bg-blue-50 rounded-lg border-l-4 border-blue-600">
                     <div className="flex items-start justify-between mb-2">
-                      <h3 className="font-semibold text-slate-800">Penilaian Tengah Semester</h3>
+                      <h3 className="font-semibold text-slate-800">Bergabung Group WhatsApp</h3>
                       <Badge variant="secondary" className="bg-blue-100 text-blue-700">Penting</Badge>
                     </div>
-                    <p className="text-sm text-slate-600">PTS PAI akan dilaksanakan pada pekan ketiga bulan September. Harap pelajari kembali materi dari Bab 1 hingga Bab 3.</p>
-                    <p className="text-xs text-slate-500 mt-2">3 hari yang lalu</p>
+                    <p className="text-sm text-slate-600">Bagi seluruh siswa wajib bergabung dalam group Whatsapp melalui tautan berikut : <a href="https://chat.whatsapp.com/IVdLOAAfhomGWby246BQ9O?mode=r_c" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">https://chat.whatsapp.com/IVdLOAAfhomGWby246BQ9O?mode=r_c</a></p>
+                    <p className="text-xs text-slate-500 mt-2">Terbaru</p>
                   </div>
                   
                   <div className="p-4 bg-green-50 rounded-lg border-l-4 border-green-600">
                     <div className="flex items-start justify-between mb-2">
-                      <h3 className="font-semibold text-slate-800">Materi Baru Tersedia</h3>
-                      <Badge variant="secondary" className="bg-green-100 text-green-700">Update</Badge>
+                      <h3 className="font-semibold text-slate-800">Game Kelas IX - Mengurutkan Potongan Ayat Al-Quran</h3>
+                      <Badge variant="secondary" className="bg-green-100 text-green-700">Game</Badge>
                     </div>
-                    <p className="text-sm text-slate-600">Materi tentang "Akhlak dalam Era Digital" sudah tersedia di semua portal kelas.</p>
-                    <p className="text-xs text-slate-500 mt-2">1 minggu yang lalu</p>
+                    <p className="text-sm text-slate-600 mb-3">Bermain sambil belajar dengan game mengurutkan potongan dan terjemahan ayat Al-Quran:</p>
+                    <div className="space-y-2">
+                      <p className="text-sm text-slate-600">• <a href="https://smpn5klaten.sch.id/game-pai-kelas9-q-quran-bab1" target="_blank" rel="noopener noreferrer" className="text-green-600 hover:underline font-medium">Al Mujadallah ayat 11</a></p>
+                      <p className="text-sm text-slate-600">• <a href="https://smpn5klaten.sch.id/game-pai-kelas9-q-quran-bab1-bag2" target="_blank" rel="noopener noreferrer" className="text-green-600 hover:underline font-medium">Az Zumar ayat 9</a></p>
+                    </div>
+                    <p className="text-xs text-slate-500 mt-2">2 hari yang lalu</p>
                   </div>
                 </div>
               </CardContent>
