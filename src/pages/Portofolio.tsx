@@ -55,6 +55,19 @@ const Portofolio = () => {
       ]
     },
     {
+      id: 7,
+      title: 'Game Kelas VIII - Mengurutkan Potongan Ayat Al-Quran',
+      category: 'Game Interaktif',
+      description: 'Game interaktif untuk mengurutkan potongan dan terjemahan ayat Al-Quran untuk siswa kelas VIII.',
+      gradient: 'from-purple-400 to-purple-600',
+      icon: Megaphone,
+      links: [
+        { title: 'Game PAI Kelas 8 Bab 1 Bag 1', url: 'https://smpn5klaten.sch.id/game-pai-kelas8-q-quran-bab1-bag1' },
+        { title: 'Game Q.S. Ibrahim 32', url: 'https://smpn5klaten.sch.id/game-mengurutkan-potongan-q-s-ibrahim-32' },
+        { title: 'Game PAI Kelas 8 Bab 1 Bag 3', url: 'https://smpn5klaten.sch.id/game-pai-kelas8-q-quran-bab1-bag3' }
+      ]
+    },
+    {
       id: 5,
       title: 'Infografis Rukun Islam',
       category: 'Infografis Materi',
