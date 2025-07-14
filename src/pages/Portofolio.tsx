@@ -114,7 +114,6 @@ const Portofolio = () => {
             })}
           </div>
 
-          {/* Portfolio Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredItems.map((item) => (
               <Card key={item.id} className="group overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-0 shadow-lg">
@@ -129,9 +128,19 @@ const Portofolio = () => {
                   
                   {/* Overlay with view button */}
                   <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <Button size="sm" className="bg-white/20 hover:bg-white/30 text-white border-white/30 backdrop-blur-sm rounded-full">
-                      <ExternalLink className="w-4 h-4" />
-                    </Button>
+                    {item.links && item.links.length > 0 ? (
+                      <Button 
+                        size="sm" 
+                        className="bg-white/20 hover:bg-white/30 text-white border-white/30 backdrop-blur-sm rounded-full"
+                        onClick={() => window.open(item.links[0].url, '_blank')}
+                      >
+                        <ExternalLink className="w-4 h-4" />
+                      </Button>
+                    ) : (
+                      <Button size="sm" className="bg-white/20 hover:bg-white/30 text-white border-white/30 backdrop-blur-sm rounded-full">
+                        <ExternalLink className="w-4 h-4" />
+                      </Button>
+                    )}
                   </div>
                 </div>
 
@@ -145,9 +154,27 @@ const Portofolio = () => {
                       {item.title}
                     </h3>
                   </div>
-                  <p className="text-slate-600 text-sm leading-relaxed">
+                  <p className="text-slate-600 text-sm leading-relaxed mb-4">
                     {item.description}
                   </p>
+                  
+                  {/* Game Links */}
+                  {item.links && item.links.length > 0 && (
+                    <div className="space-y-2">
+                      {item.links.map((link, index) => (
+                        <Button
+                          key={index}
+                          variant="outline"
+                          size="sm"
+                          className="w-full text-left justify-start text-blue-600 border-blue-200 hover:bg-blue-50"
+                          onClick={() => window.open(link.url, '_blank')}
+                        >
+                          <ExternalLink className="w-3 h-3 mr-2" />
+                          {link.title}
+                        </Button>
+                      ))}
+                    </div>
+                  )}
                 </CardContent>
               </Card>
             ))}
