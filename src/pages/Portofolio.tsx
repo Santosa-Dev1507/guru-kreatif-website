@@ -48,6 +48,7 @@ const Portofolio = () => {
       description: 'Game interaktif untuk mengurutkan potongan dan terjemahan ayat Al-Quran. Tersedia untuk Al Mujadallah ayat 11 dan Az Zumar ayat 9.',
       gradient: 'from-orange-400 to-orange-600',
       icon: Megaphone,
+      imageUrl: '/lovable-uploads/3280e274-c7e6-489e-984d-1472483eed42.png',
       links: [
         { title: 'Al Mujadallah ayat 11', url: 'https://smpn5klaten.sch.id/game-pai-kelas9-q-quran-bab1' },
         { title: 'Az Zumar ayat 9', url: 'https://smpn5klaten.sch.id/game-pai-kelas9-q-quran-bab1-bag2' }
@@ -119,12 +120,25 @@ const Portofolio = () => {
               <Card key={item.id} className="group overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-0 shadow-lg">
                 {/* Image/Preview Area */}
                 <div className={`aspect-video bg-gradient-to-br ${item.gradient} relative overflow-hidden`}>
-                  <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-all duration-300"></div>
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm group-hover:scale-110 transition-transform duration-300">
-                      <Eye className="w-10 h-10 text-white" />
-                    </div>
-                  </div>
+                  {item.imageUrl ? (
+                    <>
+                      <img 
+                        src={item.imageUrl} 
+                        alt={item.title}
+                        className="w-full h-full object-contain p-4"
+                      />
+                      <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-all duration-300"></div>
+                    </>
+                  ) : (
+                    <>
+                      <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-all duration-300"></div>
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <div className="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm group-hover:scale-110 transition-transform duration-300">
+                          <Eye className="w-10 h-10 text-white" />
+                        </div>
+                      </div>
+                    </>
+                  )}
                   
                   {/* Overlay with view button */}
                   <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
