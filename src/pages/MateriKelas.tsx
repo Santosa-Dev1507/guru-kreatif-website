@@ -84,16 +84,16 @@ const MateriKelas = () => {
                   <div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-green-600 rounded-full flex items-center justify-center">
                     <BookOpen className="w-5 h-5 text-white" />
                   </div>
-                  <h2 className="text-2xl font-bold text-slate-800">Pengumuman Umum</h2>
+                  <h2 className="text-2xl font-bold text-slate-800">Bergabung Group WhatsApp</h2>
                 </div>
                 
                 <div className="space-y-4">
                   <div className="p-4 bg-blue-50 rounded-lg border-l-4 border-blue-600">
                     <div className="flex items-start justify-between mb-2">
-                      <h3 className="font-semibold text-slate-800">Bergabung Group WhatsApp</h3>
+                      <h3 className="font-semibold text-slate-800">Kelas IX</h3>
                       <Badge variant="secondary" className="bg-blue-100 text-blue-700">Penting</Badge>
                     </div>
-                    <p className="text-sm text-slate-600">Bagi seluruh siswa wajib bergabung dalam group Whatsapp melalui tautan berikut : <a href="https://chat.whatsapp.com/IVdLOAAfhomGWby246BQ9O?mode=r_c" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">https://chat.whatsapp.com/IVdLOAAfhomGWby246BQ9O?mode=r_c</a></p>
+                    <p className="text-sm text-slate-600">Kelas IX melalui tautan berikut : <a href="https://chat.whatsapp.com/IVdLOAAfhomGWby246BQ9O?mode=r_c" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">https://chat.whatsapp.com/IVdLOAAfhomGWby246BQ9O?mode=r_c</a></p>
                     <p className="text-xs text-slate-500 mt-2">Terbaru</p>
                   </div>
                   
